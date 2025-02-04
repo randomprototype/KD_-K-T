@@ -1,13 +1,3 @@
-"""
-Victor Hugo Resende Lima
-vhugoreslim@gmail.com
-
-Esse código necessita dos seguintes pacotes nas respectivas versões:
-Pillow==9.0.1
-scipy==1.7.3
-streamlit==1.5.0
-click==8
-"""
 import streamlit as st
 import numpy as np
 import sys
