@@ -14,12 +14,12 @@ def main():
     #inserindo na coluna 2
     col2.image(foto, use_column_width=True)
     #O código abaixo centraliza e atribui cor
-    st.markdown("<h2 style='text-align: center; color: #306754;'>Hybrid Inspection and Age-Based Policy with Inspector Assignment</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #306754;'>Hybrid Aperiodic Inspection and Age-Based Policy</h2>", unsafe_allow_html=True)
     
     st.markdown("""
         <div style="background-color: #F3F3F3; padding: 10px; text-align: center;">
-          <p style="font-size: 20px; font-weight: bold;">A Delay-Time Model for Non-Periodic Inspection Intervals and Inspector Team Assignment</p>
-          <p style="font-size: 15px;">By: Victor H. R. Lima & Cristiano A. V. Cavalcante</p>
+          <p style="font-size: 20px; font-weight: bold;">An aperiodic inspection and replacement policy based on the delay-time model with component-lifetime heterogeneity</p>
+          <p style="font-size: 15px;">By: Victor H. R. Lima, Rafael, G. N. Paiva, Augusto J. S. Rodrigues, Hanser S. J. González & Cristiano A. V. Cavalcante</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -39,14 +39,18 @@ def main():
         
         st.subheader("Insert the parameter values below:")
         
-        Eta1=st.number_input("Insert the characteristic life of the weak component (η\u2081)", min_value = 0.0, value = 3.0, help="This parameter specifies the scale parameter for the Weibull distribution, representing the defect arrival for the weaker component.")
-        Beta1=st.number_input("Insert the shape parameter of the weak component (β\u2082)", min_value = 1.0, max_value=5.0, value = 2.5, help="This parameter specifies the shape parameter for the Weibull distribution, representing the defect arrival for the weaker component.")
-        Eta2=st.number_input("Insert the characteristic life of the strong component (η\u2081)", min_value = 3.0, value = 18.0, help="This parameter specifies the scale parameter for the Weibull distribution, representing the defect arrival for the stronger component.")
-        Beta2=st.number_input("Insert the shape parameter of the strong component (β\u2082)", min_value = 1.0, max_value=5.0, value = 5.0, help="This parameter specifies the shape parameter for the Weibull distribution, representing the defect arrival for the stronger component.")
+        Eta1=st.number_input("Insert the scale parameter for the defect arrival distribution of “strong” components (η\u2081)", min_value = 0.0, value = 3.0, help="This parameter specifies the scale parameter for the Weibull distribution, representing the defect arrival for the weaker component.")
+        Beta1=st.number_input("Insert the shape parameter for the defect arrival distribution of “strong” components (β\u2082)", min_value = 1.0, max_value=5.0, value = 2.5, help="This parameter specifies the shape parameter for the Weibull distribution, representing the defect arrival for the weaker component.")
+        Eta2=st.number_input("Insert the scale parameter for the defect arrival distribution of “weak” components (η\u2081)", min_value = 3.0, value = 18.0, help="This parameter specifies the scale parameter for the Weibull distribution, representing the defect arrival for the stronger component.")
+        Beta2=st.number_input("Insert the shape parameter for the defect arrival distribution of “weak” components (β\u2082)", min_value = 1.0, max_value=5.0, value = 5.0, help="This parameter specifies the shape parameter for the Weibull distribution, representing the defect arrival for the stronger component.")
         p=st.number_input("Insert the mixture parameter (p)", min_value = 0.0, value = 0.10, help="This parameter indicates the proportion of the weaker component within the total population of components.")
         Lambda=st.number_input("Insert the rate of the exponential distribution for delay-time (λ)", min_value = 0.0, value = 2.0, help="This parameter defines the rate of the Exponential distribution, which governs the transition from the defective to the failed state of a component.")
+        Alpha=st.number_input("Insert the false-positive probability (C\u02b3)", min_value = 0.5, value = 1.0, help="This parameter represents the cost associated with preventive replacements, whether performed during inspections or when the age-based threshold is reached.")
+        Epsilon=st.number_input("Insert the false-negative probability (C\u1da0)", min_value = 1.0, value = 10.0, help="This parameter represents the replacement cost incurred when a component fails.")
+        Ci=st.number_input("Insert cost of inspection (C\u02b3)", min_value = 0.5, value = 1.0, help="This parameter represents the cost associated with preventive replacements, whether performed during inspections or when the age-based threshold is reached.")
         Cr=st.number_input("Insert cost of replacement (inspections and age-based) (C\u02b3)", min_value = 0.5, value = 1.0, help="This parameter represents the cost associated with preventive replacements, whether performed during inspections or when the age-based threshold is reached.")
         Cf=st.number_input("Insert cost of failure (C\u1da0)", min_value = 1.0, value = 10.0, help="This parameter represents the replacement cost incurred when a component fails.")
+        Cd=st.number_input("Insert cost of defective by time unit (C\u02b3)", min_value = 0.5, value = 1.0, help="This parameter represents the cost associated with preventive replacements, whether performed during inspections or when the age-based threshold is reached.")
         
         col1, col2 = st.columns(2)
 
@@ -57,10 +61,6 @@ def main():
         with col2:
             st.button("Remove Repairperson", on_click=remove_column)
 
-        FixedCosts=[]
-        Ci=[]
-        Alpha=[]
-        Beta=[]
         columns = st.columns(st.session_state.num_columns)
 
         for i, col in enumerate(columns):
