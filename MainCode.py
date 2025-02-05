@@ -58,7 +58,7 @@ def main():
         st.subheader("Insert the variable values below:")
         K=int(st.text_input("Insert the number of inspections (K)", value=4))
         MinDelta=0.00
-        if (K==0):
+        if (K<=0):
             for i, col in enumerate(st.columns(K)):
                 col.write(f"**{i+1}-th inspection:**")
                 Delta.append(col.number_input("Insp. Mom. (Δ)", min_value=MinDelta, value=0.00, key=f"Delta_{i}"))
