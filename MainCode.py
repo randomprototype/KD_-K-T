@@ -154,14 +154,6 @@ def main():
     
     if choice == menu[0]:
         st.header(menu[0])
-        if 'num_columns' not in st.session_state:
-            st.session_state.num_columns = 2
-        def add_column():
-            st.session_state.num_columns += 1
-        def remove_column():
-            if st.session_state.num_columns > 1:
-                st.session_state.num_columns -= 1
-        
         st.subheader("Insert the parameter values below:")
         
         global a2,b2,a1,b1,p,l,alfa,beta,ci,cr,cf,cd
@@ -180,7 +172,7 @@ def main():
         
         col1, col2 = st.columns(2)
         
-        Delta=[0]
+        Delta=[0.00]
         st.subheader("Insert the variable values below:")
         K=int(st.text_input("Insert the number of inspections (K)", value=4))
         MinDelta=0.00
