@@ -194,7 +194,7 @@ def main():
             ################################################################
             st.write("---RESULT---")
             st.write("Cost-rate", KD_KT(K, Delta, T))
-            
+         
     if choice == menu[1]:
         st.header(menu[1])
         st.write("<h6 style='text-align: justify; color: Blue Jay;'>This app is dedicated to computing the cost rate for a hybrid inspection and age-based maintenance policy with inspector assignments. We assume a single system operating under Delay-Time Modeling (DTM) with two types of components, each having distinct defect arrival distributions. Component renovation occurs either after a failure (corrective maintenance) or during inspections, once a defect is detected or if the age-based threshold is reached (preventive maintenance). Inspectors vary in their costs (contracting fees and unitary costs for performing inspections) and their error rates (false positives and false negatives). This app emphasizes the importance of optimally selecting inspectors to minimize the cost-rate.</h6>", unsafe_allow_html=True)
