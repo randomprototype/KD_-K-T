@@ -174,7 +174,9 @@ def main():
         
         Delta=[0]
         st.subheader("Insert the variable values below:")
-        K=int(st.text_input("Insert the number of inspections (K)", value=4,min_value=0))
+        K=int(st.text_input("Insert the number of inspections (K)", value=4))
+        if (K<0):
+            K=0
         Value=2
         if (K>0):
             for i, col in enumerate(st.columns(K)):
