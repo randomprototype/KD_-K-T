@@ -181,10 +181,10 @@ def main():
         if (K>0):
             for i, col in enumerate(st.columns(K)):
                 col.write(f"**{i+1}-th inspection:**")
-                Delta.append(col.number_input("Insp. Mom. (Δ)", min_value=float(Delta[-1]), value=Value*(i+1), key=f"Delta_{i}"))
-            T = st.number_input("Insert the moment for the age-based preventive action (T)",value=(K+1)*Value,min_value=float(Delta[-1]))
+                Delta.append(col.number_input("Insp. Mom. (Δ)", value=Value*(i+1), key=f"Delta_{i}"))
+            T = st.number_input("Insert the moment for the age-based preventive action (T)",value=(K+1)*Value)
         else:
-            T = st.number_input("Insert the moment for the age-based preventive action (T)",value=(K+1)*Value,min_value=0.0)
+            T = st.number_input("Insert the moment for the age-based preventive action (T)",value=(K+1)*Value)
         
         st.subheader("Click on botton below to run this application:")    
         botao = st.button("Get cost-rate")
