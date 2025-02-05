@@ -195,7 +195,7 @@ def main():
             ################################################################
             st.write("---RESULT---")
             st.write(K,Delta,T)
-            st.write("Cost-rate", KD_KT(K, Delta, T))
+            #st.write("Cost-rate", KD_KT(K, Delta, T))
          
     if choice == menu[1]:
         st.header(menu[1])
