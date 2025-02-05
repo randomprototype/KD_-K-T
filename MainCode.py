@@ -58,10 +58,11 @@ def main():
         st.subheader("Insert the variable values below:")
         K=int(st.text_input("Insert the number of inspections (K)", value=4))
         MinDelta=0.00
-        for i, col in enumerate(st.columns(K)):
-            col.write(f"**{i+1}-th inspection:**")
-            Delta.append(col.number_input("Insp. Mom. (Δ)", min_value=MinDelta, value=0.00, key=f"Delta_{i}"))
-            MinDelta=Delta[-1]
+        if (K==0):
+            for i, col in enumerate(st.columns(K)):
+                col.write(f"**{i+1}-th inspection:**")
+                Delta.append(col.number_input("Insp. Mom. (Δ)", min_value=MinDelta, value=0.00, key=f"Delta_{i}"))
+                MinDelta=Delta[-1]
         T = st.number_input("Insert the moment for the age-based preventive action (T)", min_value=Delta[-1], value= 12.0)
         
         st.subheader("Click on botton below to run this application:")    
