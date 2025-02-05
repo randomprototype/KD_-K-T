@@ -165,20 +165,16 @@ def main():
         l=st.number_input("Insert the rate of the exponential distribution for delay-time (λ)", min_value = 0.0, value = 2.0, help="This parameter defines the rate of the Exponential distribution, which governs the transition from the defective to the failed state of a component.")
         alfa=st.number_input("Insert the false-positive probability (\u03B1)", min_value = 0.0, max_value=1.0, value = 0.1, help="This parameter represents the probability of indicating a defect during inspection when, in fact, it does not exist.")
         beta=st.number_input("Insert the false-negative probability (\u03B5)", min_value = 0.0, max_value=1.0, value = 0.15, help="This parameter represents the probability of not indicating a defect during inspection when, in fact, it does exist.")
-        st.write("Insert cost of inspection")
-        st.latex("C_{I}")
+        st.markdown("**Insert cost of inspection**  \( C_{I} \)")
         ci = st.number_input("", min_value=0.0, value=0.05, help="This parameter represents the cost of conducting an inspection.")
         
-        st.write("Insert cost of replacement (inspections and age-based)")
-        st.latex("C_{R}")
+        st.markdown("**Insert cost of replacement (inspections and age-based)**  \( C_{R} \)")
         cr = st.number_input("", min_value=0.0, value=1.0, help="This parameter represents the cost associated with preventive replacements, whether performed during inspections or when the age-based threshold is reached.")
         
-        st.write("Insert cost of failure")
-        st.latex("C_{F}")
+        st.markdown("**Insert cost of failure**  \( C_{F} \)")
         cf = st.number_input("", min_value=0.0, value=10.0, help="This parameter represents the replacement cost incurred when a component fails.")
         
-        st.write("Insert cost of defective by time unit")
-        st.latex("C_{D}")
+        st.markdown("**Insert cost of defective by time unit**  \( C_{D} \)")
         cd = st.number_input("", min_value=0.0, value=0.01, help="This parameter represents the unitary cost associated with the time in which the component stays in defective state for each time unit.")
         
         col1, col2 = st.columns(2)
