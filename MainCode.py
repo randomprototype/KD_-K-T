@@ -172,7 +172,7 @@ def main():
         
         col1, col2 = st.columns(2)
         
-        Delta=[0.00]
+        Delta=[0]
         st.subheader("Insert the variable values below:")
         K=int(st.text_input("Insert the number of inspections (K)", value=4))
         MinDelta=0.00
