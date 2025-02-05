@@ -194,6 +194,7 @@ def main():
                 return TOTAL_EC/TOTAL_EL
             ################################################################
             st.write("---RESULT---")
+            st.write(K,Delta,T)
             st.write("Cost-rate", KD_KT(K, Delta, T))
          
     if choice == menu[1]:
